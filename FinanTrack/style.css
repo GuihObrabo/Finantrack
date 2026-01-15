@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  font-family: Inter, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f1220;
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 30px;
+}
+
+header span {
+  color: #4caf50;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card,
+.actions,
+.goal,
+.right,
+.transactions li {
+  background: #181b2f;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.income p { color: #4caf50; }
+.expense p { color: #e53935; }
+
+.actions input,
+.goal input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.expense-btn { background: #e53935; }
+.sheet-btn { background: #3f51b5; width: 100%; margin-top: 6px; }
+.demo-btn { background: #607d8b; width: 100%; margin-top: 6px; }
+
+.transactions ul {
+  list-style: none;
+  padding: 0;
+}
+
+.transactions li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  animation: fadeIn 0.3s;
+}
+
+.goal-info {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 6px;
+}
+
+.progress {
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+}
+
+#goalProgress {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  border-radius: 4px;
+}
+
+.smart-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background: #1f233d;
+  border-left: 5px solid;
+  border-radius: 8px;
+}
+
+.smart-alert.warning { border-color: #ff9800; }
+.smart-alert.danger { border-color: #e53935; }
+
+.loader {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #22254a;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+
+.hidden { display: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

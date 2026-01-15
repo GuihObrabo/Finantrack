@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>FinanTrack Pro | Controle Financeiro Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div id="smartAlert" class="smart-alert hidden"></div>
+<div id="loader" class="loader hidden">Gerando planilha...</div>
+
+<header>
+  <h1>📊 FinanTrack <span>Pro</span></h1>
+  <p>Controle financeiro inteligente</p>
+</header>
+
+<main class="dashboard-grid">
+
+  <section class="left">
+
+    <section class="cards">
+      <div class="card"><h3>Saldo</h3><p id="balance">R$ 0,00</p></div>
+      <div class="card income"><h3>Entradas</h3><p id="totalIncome">R$ 0,00</p></div>
+      <div class="card expense"><h3>Despesas</h3><p id="totalExpense">R$ 0,00</p></div>
+      <div class="card"><h3>Score</h3><p id="financeScore">0</p></div>
+      <div class="card"><h3>Projeção 30 dias</h3><p id="projectionText">—</p></div>
+    </section>
+
+    <section class="actions">
+      <input id="description" placeholder="Descrição" aria-label="Descrição da transação">
+      <input id="amount" type="number" placeholder="Valor" aria-label="Valor da transação">
+
+      <div class="buttons">
+        <button onclick="addTransaction('income')" aria-label="Adicionar entrada">+ Entrada</button>
+        <button class="expense-btn" onclick="addTransaction('expense')" aria-label="Adicionar despesa">- Despesa</button>
+      </div>
+
+      <button class="sheet-btn" onclick="generateSpreadsheet()">📄 Gerar Planilha</button>
+      <button class="demo-btn" onclick="loadDemoData()">🎬 Modo Demonstração</button>
+    </section>
+
+    <section class="goal">
+      <h3>🎯 Meta Financeira Mensal</h3>
+      <input id="goalValue" type="number" placeholder="Defina sua meta">
+      <p class="goal-info">
+        Progresso: <strong id="goalStatus">R$ 0,00 / R$ 0,00</strong>
+      </p>
+      <div class="progress">
+        <div id="goalProgress"></div>
+      </div>
+    </section>
+
+    <section class="transactions">
+      <h2>Histórico</h2>
+      <ul id="transactionList"></ul>
+    </section>
+
+  </section>
+
+  <aside class="right">
+    <h3>Despesas por categoria</h3>
+    <canvas id="financeChart"></canvas>
+
+    <h3>Evolução do saldo</h3>
+    <canvas id="evolutionChart"></canvas>
+  </aside>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
